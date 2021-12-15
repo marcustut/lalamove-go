@@ -49,7 +49,7 @@ func main() {
                     lalamove.LocaleIndonesiaEN: {
                         DisplayString: "Jl. Perum Dasana Indah No.SD 3/ 17-18, RT.3/RW.1, " +
                             "Bojong Nangka, Klp. Dua, Tangerang, Banten 15810, Indonesia",
-                        Country:       lalamove.CityCodeIndonesiaJakarata.GetLLMCountry(),
+                        Market:       lalamove.CityCodeIndonesiaJakarata.GetLLMMarket(),
                     },
                 },
             },
@@ -62,7 +62,7 @@ func main() {
                     lalamove.LocaleIndonesiaEN: {
                         DisplayString: "Jl. Kartini, Ruko No. 1E, Depok, Pancoran MAS, " +
                             "Kota Depok, Jawa Barat 16431, Indonesia",
-                        Country:       lalamove.CityCodeIndonesiaJakarata.GetLLMCountry(),
+                        Market:       lalamove.CityCodeIndonesiaJakarata.GetLLMMarket(),
                     },
                 },
             },

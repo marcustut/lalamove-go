@@ -10,8 +10,8 @@ var (
 var (
 	// errUnknownError - Default error
 	errUnknownError = errors.New("ERR_UNKNOWN")
-	// errInvalidCountry - Incorrect country
-	errInvalidCountry = errors.New("ERR_INVALID_COUNTRY")
+	// errInvalidMarket - Incorrect country
+	errInvalidMarket = errors.New("ERR_INVALID_MARKET")
 	// errInvalidParams - General validation error
 	errInvalidParams = errors.New("ERR_INVALID_PARAMS")
 	// errRequiredField - Missing required fields
@@ -54,8 +54,8 @@ var (
 
 func wrapAPIError(errResp *ErrorResponse) error {
 	switch errResp.Error {
-	case "ERR_INVALID_COUNTRY":
-		return errInvalidCountry
+	case "ERR_INVALID_MARKET":
+		return errInvalidMarket
 	case "ERR_INVALID_PARAMS":
 		return errInvalidParams
 	case "ERR_REQUIRED_FIELD":

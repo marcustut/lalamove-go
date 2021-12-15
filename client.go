@@ -117,7 +117,7 @@ func (c *Client) createRequest(city CityCode, method, path string, apiReq interf
 	auth := c.generateAuth(method, path, bodyBytes)
 	req.Header.Set("Authorization", auth)
 	req.Header.Set("X-Request-ID", uuid.NewString())
-	req.Header.Set("X-LLM-Country", string(city.GetLLMCountry()))
+	req.Header.Set("X-LLM-Market", string(city.GetLLMMarket()))
 	return req, nil
 }
 

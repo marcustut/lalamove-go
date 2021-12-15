@@ -10,6 +10,7 @@ type Country struct {
 }
 
 // CityCode is the UN/LOCODE of supported cities.
+// @see https://developers.lalamove.com/#available-markets
 type CityCode string
 
 // CityCode enum
@@ -22,6 +23,8 @@ const (
 	CityCodeIndiaDelhi          CityCode = "IN_DEL"
 	CityCodeIndonesiaJakarata   CityCode = "ID_JKT"
 	CityCodeMalaysiaKualaLumpur CityCode = "MY_KUL"
+	CityCodeMalaysiaJohorBahru  CityCode = "MY_JHB"
+	CityCodeMalaysiaPenang      CityCode = "MY_NTL"
 	CityCodeMexicoMexico        CityCode = "MX_MEX"
 	CityCodePhilippinesManila   CityCode = "PH_MNL"
 	CityCodePhilippinesCebu     CityCode = "PH_CEB"
@@ -33,24 +36,13 @@ const (
 	CityCodeVietnamHanoi        CityCode = "VN_HAN"
 )
 
-// LLMCountry is the country/region/city where the order is being placed.
-// 1. Hong Kong, Indonesia, Malaysia, Singapore & Taipei should be in ISO 3166-1 alpha-2 format.
-// 2. Countries/regions/cities shou lbe in UN/LOCODE format.
-type LLMCountry string
+// LLMMarket is the country/region/city where the order is being placed.
+// Countries/regions/cities should be in UN/LOCODE format.
+type LLMMarket string
 
-// GetLLMCountry ...
-func (c CityCode) GetLLMCountry() LLMCountry {
-	switch c {
-	case CityCodeHongKongHongKong,
-		CityCodeIndonesiaJakarata,
-		CityCodeMalaysiaKualaLumpur,
-		CityCodeSingaporeSingapore,
-		CityCodeTaiwanTaipei:
-		country := c.GetCountry()
-		return LLMCountry(country.Code)
-	default:
-		return LLMCountry(c)
-	}
+// GetLLMMarket ...
+func (c CityCode) GetLLMMarket() LLMMarket {
+	return LLMMarket(c)
 }
 
 // GetCountry ...
@@ -64,7 +56,7 @@ func (c CityCode) GetCountry() Country {
 		return CountryIndia
 	case CityCodeIndonesiaJakarata:
 		return CountryIndonesia
-	case CityCodeMalaysiaKualaLumpur:
+	case CityCodeMalaysiaKualaLumpur, CityCodeMalaysiaJohorBahru, CityCodeMalaysiaPenang:
 		return CountryMalaysia
 	case CityCodeMexicoMexico:
 		return CountryMexico

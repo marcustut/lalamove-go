@@ -106,7 +106,7 @@ type Address struct {
 	// DisplayString is the street address in plain text. Use remarks in DeliveryInfo for building, floor and flat.
 	DisplayString string `json:"displayString"`
 	// Country is the country code of the address and must match with X-LLM-Country in the request headers.
-	Country LLMCountry `json:"country"`
+	Country LLMMarket `json:"market"`
 }
 
 // Location ...

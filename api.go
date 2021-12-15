@@ -54,7 +54,7 @@ func (c *Client) DriverDetails(ctx context.Context, city CityCode, orderID, driv
 
 // DriverLocation retrieves driver's latest location in latitude and longitude. This information is available starting
 // 1 hour prior to datetime specified in scheduleAt datetime and remain accessible until the order is completed.
-// Attempts made outside of this time window will get 403 Forbidden response.
+// Attempts made out of this time window will get 403 Forbidden response.
 func (c *Client) DriverLocation(ctx context.Context, city CityCode, orderID, driverID string) (*DriverLocationResponse, error) {
 	path := fmt.Sprintf("/v2/orders/%s/drivers/%s/location", orderID, driverID)
 	resp := &DriverLocationResponse{}
